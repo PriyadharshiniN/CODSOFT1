@@ -1,0 +1,19 @@
+{% extends 'Shopping_App/layouts/main.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Success</title>
+</head>
+<body>
+    <div style="margin-top: 100px;">
+        <h1 style="color: green;">Payment Successful</h1>
+        <p>Your payment has been processed successfully.</p>
+        <button class="btn btn-warning">  <a href="{% url 'collections' %}">Continue Shopping</a></button>
+
+    </div>
+    
+</body>
+</html><br><br><br><br><br><br>
+{% endblock %}

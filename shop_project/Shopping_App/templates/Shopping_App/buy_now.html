@@ -1,0 +1,25 @@
+{% extends 'Shopping_App/layouts/main.html' %}
+{% block title %}
+Phoenix Mart | Buy Now
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>Confirm Purchase</h1>
+    <h2>Order Id: {{ product_id }}</h2>
+    <h2><b>Product Name: {{ product_name }}</b></h2>
+    <p><b>Quantity:</b> {{ qty }}</p>
+    <p><b>Price per unit: </b> {{ product.selling_price }}</p>
+    <p><b>Total Price: </b> {{ total_amount }}</p>
+    <form method="post" action="{% url 'buy_payment' product_id qty  %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning w-25">Buy Now</button>
+    </form><br>
+    <form method="post" action="{% url 'cancel_order'%}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger w-25">Cancel Order</button>
+    </form><br>
+    
+</div>
+<br><br><br><b></b>
+{% endblock %}

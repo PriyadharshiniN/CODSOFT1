@@ -1,0 +1,38 @@
+{% extends 'Shopping_App/layouts/main.html' %}
+{% block title %}
+Phoenix Mart| Your Order Page
+{% endblock title %}
+{% block content %}
+<table class="table table-bordered " style="margin-top: 85px;">
+      <tr>
+        <th scope="col">Order Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total Price</th>
+      </tr>
+        {% for item in cart_items %}
+      <tr>
+        <td>{{ item.product.id}}</td>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.product_qty }}</td>
+        <td>{{ item.product.selling_price }}</td>
+        <td> {{item.total_cost}}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="4" style="text-align: end;"><b>Total Amount</b></td>
+        <td>{{total_cost }}</td>
+      </tr>
+   
+  </table><br><br><br>
+  <div style="margin-left:560px">
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-warning w-25"><b> <a href="{% url 'paymentpage' %}">Proceed to Payment</a></b></button></a>
+    </form>
+
+  </div>
+  <br><br><br><br>
+  {% endblock %}
+   

@@ -1,0 +1,17 @@
+{% extends 'Shopping_App/layouts/main.html' %}
+{% block title %}
+Phoenix Mart | Your Orders
+{% endblock title %}
+
+{% block content %}
+<div style="margin-top:100px;margin-left:400px;color:green">
+    <h1>Your Orders is cancelled</h1><br><br>
+    <form action="{% url 'home' %}">
+        <button class="btn btn-warning w-25" style="margin-left: 100px;">Continue Shopping</button>
+
+    </form>
+  
+       
+</div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

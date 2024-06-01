@@ -1,0 +1,33 @@
+{% extends 'Shopping_App/layouts/main.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+</head>
+<body>
+    <form method="post">
+    <h1 style="margin-top: 60PX;">Payment Option:</h1>
+            <input type="radio" name="pop" required>Cash On Delivery
+            <input type="radio" name="pop"required>Online Payment
+            <input type="radio" name="pop" required>Card
+    <br><br>
+    <table  style="padding-left: 50px;">  
+        <tr><td><b>Total Amount: Rs.{{ total_cost }}</b></td></tr>
+    </table>
+       
+            
+                {% csrf_token %}
+                <table>
+                    <tr><td> {{ form.as_p }}</td></tr>
+                </table>
+               
+                <button type="submit" class="btn btn-warning"><a href="{% url 'payment_success'%}">Submit Payment</a></button>
+            </form>
+       
+   
+</body>
+</html><br><br><br><br><br><br>
+
+{% endblock %}
